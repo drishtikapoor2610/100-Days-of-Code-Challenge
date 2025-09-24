@@ -1,24 +1,20 @@
 
-// Write a program to find the 1’s complement of a binary number and print it.
+// Write a program to find the 1’s complement of a binary number and print it. without array, string
 #include <stdio.h>
-#include <string.h>
-int main() {
-    char binary[65], ones_complement[65];
+#include <math.h>
+int main(){
+    long long int n, num, digit, ones_complement = 0, place_value = 1;
     printf("Enter a binary number: ");
-    scanf("%s", binary);
-    int len = strlen(binary);
-    for (int i = 0; i < len; i++) {
-        if (binary[i] == '0') {
-            ones_complement[i] = '1';
-        } else if (binary[i] == '1') {
-            ones_complement[i] = '0';
-        } else {
-            printf("Invalid binary number.\n");
-            return 1;
+    scanf("%lld", &n);
+    num = n;
+    while (num > 0) {
+        digit = num % 10;
+        if (digit == 0) {
+            ones_complement += place_value;
         }
+        place_value *= 10;
+        num /= 10;
     }
-    ones_complement[len] = '\0'; 
-    printf("%s\n", ones_complement);
+    printf("%lld\n",ones_complement);
     return 0;
 }
-
