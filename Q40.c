@@ -1,12 +1,17 @@
-
-// Write a program to find the 1’s complement of a binary number and print it. without array, string
 #include <stdio.h>
-#include <math.h>
-int main(){
+
+int main() {
     long long int n, num, digit, ones_complement = 0, place_value = 1;
-    printf("Enter a binary number: ");
+
     scanf("%lld", &n);
+
+    if (n == 0) {
+        printf("1\n");
+        return 0;
+    }
+
     num = n;
+
     while (num > 0) {
         digit = num % 10;
         if (digit == 0) {
@@ -15,6 +20,8 @@ int main(){
         place_value *= 10;
         num /= 10;
     }
-    printf("%lld\n",ones_complement);
+
+    printf("%lld\n", ones_complement);
+
     return 0;
 }
