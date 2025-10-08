@@ -35,7 +35,7 @@ int main() {
         i++;
     }
 
-    for (i = last_space + 1; i < len; i++) {
+    for (i = last_space; i < len; i++) {
         printf("%c", name[i]);
     }
 
