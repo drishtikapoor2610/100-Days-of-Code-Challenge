@@ -31,28 +31,39 @@ No element has a greater element on its right, so all next greater elements are 
 Try solving this using brute force (nested loop). No need of attempting the optimized stack-based solution.
 */
 #include <stdio.h>
-void findNextGreaterElements(int arr[], int n, int result[]) {
-    for (int i = 0; i < n; i++) {
+void findNextGreaterElements(int arr[], int n, int result[])
+{
+    for (int i = 0; i < n; i++)
+    {
         result[i] = -1; // Default value if no greater element is found
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] > arr[i]) {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] > arr[i])
+            {
                 result[i] = arr[j];
                 break; // Stop at the first greater element found
             }
         }
     }
 }
-int main() {
-    int arr[] = {1, 3, 2, 4};
-    int n = sizeof(arr) / sizeof(arr[0]);
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
     int result[n];
-
     findNextGreaterElements(arr, n, result);
 
     // Print the result in comma separated format
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         printf("%d", result[i]);
-        if (i < n - 1) {
+        if (i < n - 1)
+        {
             printf(", ");
         }
     }
